@@ -2,6 +2,8 @@ services:
   nginx:
     image: nginx:latest
     volumes:
+      - ./global.conf:/etc/nginx/conf.d/global.conf
+      - ~/docker/nginx/common.conf:/etc/nginx/conf.d/common.conf
       - ~/docker/nginx/sites-enabled:/etc/nginx/sites-enabled
       - ~/docker/nginx/ssl:/root/ssl
       - ~/docker/nginx/static:/root/static
