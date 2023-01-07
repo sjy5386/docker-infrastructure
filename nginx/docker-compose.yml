@@ -1,0 +1,8 @@
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ~/docker/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - 80:80
+      - 443:443
