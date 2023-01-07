@@ -2,7 +2,11 @@ services:
   nginx:
     image: nginx:latest
     volumes:
-      - ~/docker/nginx/conf.d:/etc/nginx/conf.d
+      - ~/docker/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ~/docker/nginx/ssl:/root/ssl
+      - ~/docker/nginx/static:/root/static
     ports:
       - 80:80
       - 443:443
+    extra_hosts:
+      - host.docker.internal:host-gateway
