@@ -1,0 +1,10 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - ~/docker/mariadb/conf.d:/etc/mysql/conf.d
+      - ~/docker/mariadb/mysql:/var/lib/mysql
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: yes
+    ports:
+      - 3306:3306
