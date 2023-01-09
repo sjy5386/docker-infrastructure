@@ -1,0 +1,19 @@
+services:
+  php:
+    image: php:apache
+    volumes:
+      - ~/docker/apache/html:/var/www/html
+    ports:
+      - 80:80
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  mysql:
+    image: mysql:latest
+    volumes:
+      - ~/docker/mysql/conf.d:/etc/mysql/conf.d
+      - ~/docker/mysql/mysql:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+    ports:
+      - 3306:3306
