@@ -3,8 +3,14 @@ services:
     image: php:apache
     volumes:
       - ~/docker/apache/html:/var/www/html
+      - ~/docker/apache/common.conf:/etc/apache2/conf-enabled/common.conf
+      - ~/docker/apache/sites-enabled:/etc/apache2/sites-enabled
+      - ~/docker/apache/ssl:/root/ssl
+      - ~/docker/apache/static:/root/static
+      - /etc/letsencrypt/live:/etc/letsencrypt/live
     ports:
       - 80:80
+      - 443:443
     extra_hosts:
       - host.docker.internal:host-gateway
 
