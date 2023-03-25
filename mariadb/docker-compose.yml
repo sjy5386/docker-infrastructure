@@ -4,6 +4,11 @@ services:
     volumes:
       - ~/docker/mariadb/conf.d:/etc/mysql/conf.d
       - ~/docker/mariadb/mysql:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
     ports:
       - 3306:3306
   secondary:
@@ -11,5 +16,10 @@ services:
     volumes:
       - ~/docker/mariadb/secondary/conf.d:/etc/mysql/conf.d
       - ~/docker/mariadb/secondary/mysql:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
     ports:
       - 3307:3306
