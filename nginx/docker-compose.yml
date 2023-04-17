@@ -6,7 +6,7 @@ services:
       - ~/docker/nginx/common.conf:/etc/nginx/conf.d/common.conf
       - ~/docker/nginx/sites-enabled:/etc/nginx/sites-enabled
       - ~/docker/nginx/ssl:/root/ssl
-      - ~/docker/nginx/static:/root/static
+      - ~/docker/nginx/static:/home/nginx/static
       - /etc/letsencrypt/live:/etc/letsencrypt/live
     ports:
       - 80:80
