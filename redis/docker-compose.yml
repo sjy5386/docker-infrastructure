@@ -1,9 +1,11 @@
 services:
   primary:
     image: redis:latest
+    restart: unless-stopped
     ports:
       - 6379:6379
   secondary:
     image: redis:latest
+    restart: unless-stopped
     ports:
       - 6380:6379

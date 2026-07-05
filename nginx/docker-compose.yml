@@ -1,6 +1,7 @@
 services:
   nginx:
     image: nginx:latest
+    restart: unless-stopped
     volumes:
       - ./global.conf:/etc/nginx/conf.d/global.conf
       - ~/docker/nginx/common.conf:/etc/nginx/conf.d/common.conf
